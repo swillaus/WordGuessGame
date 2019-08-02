@@ -1,0 +1,50 @@
+body {
+    background-color:black;
+    color: white;
+  }
+
+  h1 {
+      font-size: 100px;
+      text-align: center;
+      width: 100%;
+  }
+
+  h2 {
+    font-size: 50px;
+    margin-bottom: 80px;
+    text-align: center;
+    width: 100%;
+  }
+
+  div {
+    font-size: 25px;
+    padding-top: 15px;
+
+  }
+
+  img {
+      padding: 20px;
+  }
+
+  .leftSide {
+    float: left;
+    margin-left: 250px;
+    border-style: dotted;
+    height: 500px;
+    width: 350px;
+    align-content: center;
+    border-color: white;
+    border-width: medium;
+ } 
+
+ .rightSide {
+    float: right;
+    margin-right: 250px;
+    border-style: dashed;
+    height: 500px;
+    width: 350px;
+    text-align: center;
+    font-size: 18px;
+    border-color: white;
+    border-width: medium;
+ } 
