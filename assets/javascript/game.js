@@ -1,9 +1,10 @@
 /* create an array with all potential guesses */
-var possibleGuess = ["Madonna", "Bon Jovi", "Blondie", "Cher"]
+var possibleGuess = ["MADONNA", "BON JOVI", "BLONDIE", "CHER"]
 
 /* create a var that randomally picks one of the values in that array */
 var randomNumber = Math.floor(Math.random() * possibleGuess.length);
 var randomWord = possibleGuess[randomNumber]
+
 
 /* create variables to hold user inputs */
 var wins = 0;
@@ -23,36 +24,45 @@ function ConvertWordToBlanks(display, word) {
             display += "_ "
         }
     }
-    // console.log(display)
+    // display the placeholder to document
     document.getElementById("currentWord").innerHTML = display;
+
 }
 
 /* check user inputs and whether that letter is contained in the string */
 document.addEventListener("keyup", function (event) {
+
     // console.log(event.keyCode)
-    var keyEntered = event.keyCode;
+
     for (var i = 0; i < randomWord.length; i++) {
+        console.log(randomWord.length)
+        // condition to check
+    
+        if (randomWord.charCodeAt(i) === event.keyCode){
+           
+            // find the location of the charater in the string  
+            letterPosition = randomWord.indexOf(i)+1
+            console.log(letterPosition)
 
-        // console.log(randomWord.charCodeAt(i))
-        if (randomWord.charCodeAt(i) === event.keyCode) {
-            console.log("You have a match")
+            // document.getElementById("currentWord").innerHTML = "B _ _ _ _ _ _";
+            console.log("correct: random " + randomWord.charCodeAt(i) + " vs entered " + event.keyCode);
+            // console.log("correct");
 
-            // display letter within random word
-
-            // if the condition is not satisfied
+        // if the condition is not satisfied  
         } else {
-            console.log("You wrong")
+            //console.log("You wrong")
 
             // push letter guessed to incorrect guesses
-            incorrectGuess.push(String.fromCharCode(event.keyCode))
+            incorrectGuess.push(String.fromCharCode(event.keyCode));
             document.getElementById("incorrectGuesses").innerHTML = incorrectGuess;
 
             // reduce the guesses left score
             document.getElementById("guessesRemaining").innerHTML = guessesLeft--;
-
-
+            console.log("incorrect: random " + randomWord.charCodeAt(i) + " vs entered " + event.keyCode);
+            
         }
-        { break; }
+        
+        console.log("correct: random " + randomWord.charCodeAt(i) + " vs entered " + event.keyCode);
     }
 })
 
