@@ -12,8 +12,6 @@ var wordDisplay = "";
 var guessesLeft = 10;
 var incorrectGuess = [];
 
-
-
 function ConvertWordToBlanks(display, word) {
     display = "";
     console.log(word.split(""))
@@ -26,7 +24,6 @@ function ConvertWordToBlanks(display, word) {
     }
     // display the placeholder to document
     document.getElementById("currentWord").innerHTML = display;
-
 }
 
 /* check user inputs and whether that letter is contained in the string */
@@ -36,33 +33,35 @@ document.addEventListener("keyup", function (event) {
 
     for (var i = 0; i < randomWord.length; i++) {
         console.log(randomWord.length)
+        
         // condition to check
-    
-        if (randomWord.charCodeAt(i) === event.keyCode){
-           
+
+        if (randomWord.charCodeAt(i) === event.keyCode) {
+
             // find the location of the charater in the string  
-            letterPosition = randomWord.indexOf(i)+1
+            letterPosition = randomWord.indexOf(i) + i + 1
             console.log(letterPosition)
+            
 
-            // document.getElementById("currentWord").innerHTML = "B _ _ _ _ _ _";
+            // update the display text         
+            document.getElementById("currentWord").innerHTML = randomWord[i] + "_ ";
             console.log("correct: random " + randomWord.charCodeAt(i) + " vs entered " + event.keyCode);
-            // console.log("correct");
 
-        // if the condition is not satisfied  
+            // if the condition is not satisfied  
         } else {
-            //console.log("You wrong")
 
             // push letter guessed to incorrect guesses
-            incorrectGuess.push(String.fromCharCode(event.keyCode));
-            document.getElementById("incorrectGuesses").innerHTML = incorrectGuess;
+
+
+            incorrectGuess.splice(i, 0, String.fromCharCode(event.keyCode));
+            document.getElementById("incorrectGuesses").innerHTML = incorrectGuess[i];
+            
 
             // reduce the guesses left score
-            document.getElementById("guessesRemaining").innerHTML = guessesLeft--;
+            document.getElementById("guessesRemaining").innerHTML = guessesLeft - 1;
             console.log("incorrect: random " + randomWord.charCodeAt(i) + " vs entered " + event.keyCode);
-            
         }
-        
-        console.log("correct: random " + randomWord.charCodeAt(i) + " vs entered " + event.keyCode);
+
     }
 })
 
@@ -73,3 +72,4 @@ document.addEventListener("keyup", function (event) {
 /* Create a variable for the number of wins */
 
 ConvertWordToBlanks(wordDisplay, randomWord);
+

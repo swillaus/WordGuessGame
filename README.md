@@ -1,7 +1,9 @@
 # WordGuessGame
 Assignment Wk 3: Word Guess Game
 
-Outstanding items:
-1. Only produce one outcome but iterate through the entire for loop
-2. Once word is reached the give win message and reset
-3. Once remaining guesses is nil then give lose message
+Unable to resolve the following items:
+1. For the correct word guess, build up a log of all the letters with to replace the space
+2. For incorrect guesses, build onto the array based on selection   
+3. If first guess is correct, incorrect returns undefined
+4. Once word is reached the give win message and reset
+5. Once remaining guesses is nil then give lose message
