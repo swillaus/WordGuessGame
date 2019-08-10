@@ -121,10 +121,10 @@ function roundComplete() {
   // (meaning that we guessed all the letters to match the solution)...
   // DELETE THIS
   console.log(randomWord.toString())
-  console.log(blanksAndSuccesses.toString())
+  console.log(blanksAndSuccesses.join(""))
 
 
-  if (randomWord.toString() === blanksAndSuccesses.toString()) {
+  if (randomWord.toString() === blanksAndSuccesses.join("")) {
 
     // Add to the win counter
     winCounter++;
